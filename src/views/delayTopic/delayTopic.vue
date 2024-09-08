@@ -40,6 +40,7 @@
       <el-card class="card-item">
         <el-descriptions title="基础信息">
           <el-descriptions-item label="主题">{{this.delayTopicDetailData.topic}}</el-descriptions-item>
+          <el-descriptions-item label="消费者组">{{this.delayTopicDetailData.groupId}}</el-descriptions-item>
           <el-descriptions-item label="分区数">{{this.delayTopicDetailData.partitionInfo.length}}</el-descriptions-item>
           <el-descriptions-item label="数据大小">{{this.delayTopicDetailData.size/1024/1024}}(MB)</el-descriptions-item>
         </el-descriptions>
@@ -81,6 +82,24 @@
                 <el-tag type="success" v-for="item in scope.row.isr" :key="item.id">
                   {{ item.id }}
                 </el-tag>
+              </div>
+            </template>
+          </el-table-column>
+          <el-table-column
+              label="lag"
+          >
+            <template #default="scope">
+              <div class="font_red">
+                {{scope.row.lag}}
+              </div>
+            </template>
+          </el-table-column>
+          <el-table-column
+              label="lead"
+          >
+            <template #default="scope">
+              <div class="font">
+                {{scope.row.lead}}
               </div>
             </template>
           </el-table-column>
@@ -170,5 +189,13 @@ export default {
 }
 .card-item {
   margin-bottom: 20px; /* 下方间距 */
+}
+.font {
+  font-weight: bold;
+  color: #337ecc;
+}
+.font_red {
+  font-weight: bold;
+  color: #c45656;
 }
 </style>

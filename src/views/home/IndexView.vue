@@ -5,7 +5,7 @@
     <el-container style="height: 100vh; border: 1px solid #eee">
       <el-aside width="300px" style="background-color: rgb(238, 241, 246)">
         <el-menu :default-active="activeIndex" @select="handleMenuSelect">
-          <el-menu-item index="index">
+          <el-menu-item index="">
             <el-icon><ChatLineSquare /></el-icon>
             <span>延迟主题</span>
           </el-menu-item>
